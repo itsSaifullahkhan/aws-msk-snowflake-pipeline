@@ -1,0 +1,40 @@
+bin/kafka-topics.sh --create --topic demo_testing2 --bootstrap-server b-2.kafkasnowflake.ncsc50.c25.kafka.us-east-1.amazonaws.com:9092,b-1.kafkasnowflake.ncsc50.c25.kafka.us-east-1.amazonaws.com:9092 --replication-factor 1 --partitions 2
+--------------------------------
+ssh -i "connectordemo.pem" ec2-user@54.82.86.44
+ssh -i "connectordemo.pem" ec2-user@10.0.2.31
+-----------------------------------------------
+connector.class=com.snowflake.kafka.connector.SnowflakeSinkConnector
+tasks.max=8
+topics=demo_testing2
+snowflake.topic2table.map=demo_testing2:fake_data_real_time_demo
+buffer.count.records=10000
+buffer.flush.time=60
+buffer.size.bytes=5000000
+snowflake.url.name=RLZENHL-NV54659.snowflakecomputing.com
+snowflake.user.name=SAIFULLAHKHAN1506
+snowflake.private.key=MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC2Ug3HJKzu8Br3zc98uxrjRjgA
+2rmGDmhxp2R2/H5CFC96C01VtVQsvViU4TiIoLNFYZP0e3saUcmLOzFMALhihNuqZbIg6WxpmQJ9
+M51Aam/jYHG6+VCzP4+QXOiZruFSUjMVka+JoJ82CiPXYUzcY3YnyvZGX5l7EQNnbxOZ3Gc6f3Jj
+/HLCwkpIs10HVj0s1lmS+pUJiOO61oHfYvja//QprWMUevaklreto9xwUrlejQGs7GO4EZzIJabz
+ueoQOFvyA+FNNjr31t1p5SjF/pp3LGlycA/mj8gpa97kgF8FuI7hYi0SJZtL35y9CGLhMGAQIi9k
+o9xVsEc+wtf7AgMBAAECggEAJT9cOzwd7G63Q7sTUas0EgyNcnc9Acs9wUJufvSUotFW5bsbYJA8
+EyvXxgrBLwCNv3Xw8Tis7LKa10wPhTR8dvwnmIdQPfMSR/yPip6Z2Mgl9bEFayp2NzicDuU8S/Fz
+bQsIDrcFwrtC65pkuiLRvhC/2d9YMwZi58aRCHej7IHGRXYdMBLnSXQuatZAykqd2XkSG33S3gA4
+M6PFr627UTobQWVxx5ARbmbN0o7XgRyI8HnYduBVDkivfa/3U+IerCSKWNbEBKRpqv0jTxx6YKm0
+e2NxeSl2A2uWlY6rfa97zzstq2xncCjNZK2xzC9yIIlFv5Z3YkXpDBVam6/eOQKBgQD+3vGZjRmR
+rGXc8c/lFaM1tzSu6jmENDXp1mpphC/5uXg4TOIadO3UvBlombPENMxvYIZUOryzWpIcRhRX2RpZ
+BmgJUzrqXKL9kRHK83YK06Nx9g/uvNaz3qp/rl6iY29sJ2q8Ujt9ge/yrc1DGUh91dLc1RTelcZm
+fxKzia0dTwKBgQC3INQjtd0sroKrf62dN9MImuEO23ZRcZd18lecd9BpvvBBLYZynGsjC+BdwVhb
+E9l19+5M6eHoy9OO/nlNp1u8ls1F9JgdhDaARrCbm1vzAAaCrFzNX5kH9jKudwMyhEJ/rL6nDJ3E
+1VMOD1aBJOu7NbV1wO1nlc4LFy07lOpnlQKBgQDrTjXMSELlBT9+PxprLBDk1OIk40Z60iE8ZKMW
+C96nNh7SC9lsB6xUDd1/fvhDG2PrKDicpyX0iJgA1oqNmHkE3C9M/LSWDzTD2h2NPD0tPbvWyRBo
+n5uxsM/E1d21GwyR08ptV5ZpB3/ak6/AVSViV/k3vNpprengU02WyHM1bQKBgQChu4Sf5UZo59bP
+z/ttFphyyRZrILfmRgQWTunBbq/KNK/LYIGVRz/3u810AAYgqe8smMMFeqniB+HYMDbBtkT20diJ
+J/QQXWwk7kmbpCIZArS9Q6zSVNO6jF1GaCWSv+xbBh17O1E7PYwUpscnV4w50r1oOfNxwIQwl0+D
+h4ld4QKBgBBpcVMGjX0bVadSutZAjIae4gftEiNF9nHOGzny7kZTtPCp/Gv7smGTXuvzA/7HDbOM
+Eoe10fMpFZ4cLivZ0stHPoG+P9y2MV3ORtdsDgA26wRnvmdmemgxEWXjusfdydsHe4AbDZCBfzD9
+saQvbPAnW8zpqaBY0iU4lEWm6rS7
+snowflake.database.name=RAMU
+snowflake.schema.name=PUBLIC
+key.converter=com.snowflake.kafka.connector.records.SnowflakeJsonConverter
+value.converter=com.snowflake.kafka.connector.records.SnowflakeJsonConverter
